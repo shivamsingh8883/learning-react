@@ -3,15 +3,23 @@ import { useState } from "react";
 export default function WeatherApp() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
+  const [forecast, setforecast] = useState(null);
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(
+      const weatherresponse = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cfd1636b5cfcd29be9e2b5a72e67eef4&units=metric`,
       );
-      const data = await response.json();
-      if (data.main) {
-        setWeather(data);
+      const weatherdata = await weatherresponse.json();
+
+      const forecastresponse = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=cfd1636b5cfcd29be9e2b5a72e67eef4&units=metric`,
+      );
+      const forecastdata = await forecastresponse.json();
+
+      if (weatherdata.main) {
+        setWeather(weatherdata);
+        setforecast(forecastdata);
       } else {
         alert("City not found");
       }
@@ -73,8 +81,31 @@ export default function WeatherApp() {
             </div>
           </div>
         )}
+
+        
+        {forecast && (
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-6 mt-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              5-Day Forecast
+            </h3>
+            <div className="grid grid-cols-2 gap-4">
+              {forecast.list.slice(0, 5).map((item, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg shadow">
+                  <p className="font-semibold text-gray-700">
+                    {item.dt_txt.split(" ")[0]}
+                  </p>
+                  <p className="text-gray-600">{item.main.temp}°C</p>
+                  <p className="text-sm text-gray-500">
+                    {item.weather[0].main}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+
       </div>
     </div>
   );
-
-  
+}
