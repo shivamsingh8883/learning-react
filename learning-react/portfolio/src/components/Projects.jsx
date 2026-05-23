@@ -4,20 +4,20 @@ function Projects() {
       title: "Weather App",
       description: "Real-time weather data with 5-day forecast and favorites.",
       tech: ["React", "REST API", "Tailwind CSS"],
-      link: "https://github.com/shivamsingh8883/learning-react"
+      link: "https://learning-react-5ead.vercel.app",
     },
     {
       title: "GitHub User Finder",
       description: "Search GitHub users and view their repositories.",
       tech: ["React", "GitHub API", "Tailwind CSS"],
-      link: "https://github.com/shivamsingh8883/learning-react"
+      link: "https://learning-react-a3l7.vercel.app",
     },
     {
       title: "Task Manager",
       description: "Manage your daily tasks with a clean, simple interface.",
       tech: ["JavaScript", "DOM", "Local Storage"],
-      link: "https://github.com/shivamsingh8883/learning-react"
-    }
+      link: "https://github.com/shivamsingh8883/learning-react",
+    },
   ];
 
   return (
