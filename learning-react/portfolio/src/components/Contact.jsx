@@ -9,7 +9,7 @@ function Contact() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           
             <a
-            href="https://www.linkedin.com/in/shivam-singh-85270a329/"
+            href="https://www.linkedin.com/in/shivam-singh-85270a329"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
